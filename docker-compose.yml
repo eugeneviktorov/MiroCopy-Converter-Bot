@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  converter:
+    build: .
+    container_name: mirocopy-converter
+    restart: always
+    volumes:
+      - ./resources:/app/resources
+      - /var/run/docker.sock:/var/run/docker.sock
