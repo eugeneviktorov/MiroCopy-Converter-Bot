@@ -1,36 +1,39 @@
 import asyncio
 from aiogram import Bot, Dispatcher
 from aiogram.types import BotCommand
+from aiogram.enums.parse_mode import ParseMode
+from aiogram.client.default import DefaultBotProperties
 from bot.config import API_TOKEN
 from bot.handlers.convert import router as client_router
 from utils.logger import logger
 
-# Инициализация токена бота
-bot = Bot(token=API_TOKEN)
-dp = Dispatcher()
 
-# Команды для контекстного меню
-async def set_commands(bot: Bot):
-    commands = [
-        BotCommand(command="start", description="🔄 Restart"),
-    ]
-    await bot.set_my_commands(commands)
+async def set_commands(bot: Bot) -> None:
+    await bot.set_my_commands([
+        BotCommand(command="start", description="🔄 Restart bot"),
+    ])
 
-# Инициализация систем
-dp.include_router(client_router)
 
-# Запускаемая функция бота
-async def main():
+async def main() -> None:
+    logger.info("🔄 Bot is starting...")
+
+    bot = Bot(token=API_TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
+    dp = Dispatcher()
+
+    dp.include_router(client_router)
+
     await set_commands(bot)
-    logger.info("🔄 Бот запускается...")
+
     try:
         await dp.start_polling(bot)
-    except Exception as e:
-        logger.exception(f"❌ Ошибка при старте polling: {e}")
+    except Exception:
+        logger.exception("❌ Error while starting polling")
+    finally:
+        await bot.session.close()
 
-# Запуск системы бота
+
 if __name__ == "__main__":
     try:
         asyncio.run(main())
-    except KeyboardInterrupt:
-        logger.info("🛑 Бот остановлен пользователем")
+    except (KeyboardInterrupt, SystemExit):
+        logger.info("🛑 Bot stopped by user")
