@@ -3,8 +3,6 @@ version: '3.8'
 services:
   converterbot:
     build: .
-    container_name: mirocopy-converterbot
-    restart: always
+    restart: unless-stopped
     volumes:
-      - ./resources:/app/resources
-      - /var/run/docker.sock:/var/run/docker.sock
+      - ./config.ini:/app/config.ini:ro

@@ -1,3 +1,21 @@
-/.venv
-/.vscode
+# Python
 __pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv/
+venv/
+
+# IDE
+.idea/
+.vscode/
+
+# Environment / secrets
+.env
+config.ini
+
+# OS files
+.DS_Store
+Thumbs.db
