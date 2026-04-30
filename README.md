@@ -1,59 +1,150 @@
-# MiroCopy-ConverterBot
+# 📄 MiroCopy Converter Bot
 
-### Содержание
+[![Python](https://img.shields.io/badge/Python-3.13-blue.svg)]()
+[![Aiogram](https://img.shields.io/badge/Aiogram-3.x-green.svg)]()
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)]()
+[![Docker](https://img.shields.io/badge/Docker-ready-blue?logo=docker)]()
+[![Telegram Bot](https://img.shields.io/badge/Telegram-Open%20Bot-blue?logo=telegram)](https://t.me/mirocopy_converter_bot)
 
-- [1. Описание проекта](#1-описание-проекта)
-  - [1.1. Ключевые функции](#11-ключевые-функции)
-- [2. Используемые технологии](#2-используемые-технологии)
-- [3. Локальный запуск](#3-локальный-запуск)
+A simple Telegram bot that converts photos into a single PDF file.
 
-### 1. Описание проекта
+👉 **Try it here:** https://t.me/mirocopy_converter_bot
 
-Инструмент конвертации фотографий в PDF файл.
+---
 
-### 1.1. Ключевые функции
+## ✨ Features
 
-- Конвертация фото в PDF
+- 📷 Convert single photo to PDF
+- 🖼 Convert multiple photos (albums) into one PDF
+- 🌍 Multi-language support (EN, RU, ES, PT, ID, AR)
+- ⚡ Fast and asynchronous processing
+- 🧹 Automatic temporary file cleanup
 
-### 2. Используемые технологии
+---
 
-- Python `3.13.9` - язык разработки.
-- Aiogram `3.23.0` - фреймворк для работы с Telegram Bot API.
-- Img2pdf `0.6.3` - библиотека для обработки изображения.
+## 🛠 Tech Stack
 
-### 3. Локальный запуск
+- **Python 3.13**
+- **Aiogram 3.x** - Telegram Bot framework
+- **img2pdf** - image to PDF conversion
 
-В файле `config.ini`:
+---
 
-- Параметр `bot =` подставить `TOKEN` своего бота для разработки;
+## 🚀 Quick Start
 
-Создание виртуального окружения:
+### 1. Clone repository
+
+```bash
+git clone https://github.com/eugeneviktorov/mirocopy-converter-bot.git
+cd mirocopy-converterbot
+```
+
+---
+
+### 2. Create `.env` file
+
+Create a `.env` file in the project root:
+
+```env
+BOT_TOKEN=your_telegram_bot_token
+```
+
+---
+
+### 3. Run locally
+
+#### Create virtual environment
 
 ```bash
 python -m venv .venv
 ```
 
-Активация виртуального окружения:
+#### Activate it
 
 ```bash
-source .venv/bin/activate  # Для Linux/macOS
-.venv\Scripts\activate     # Для Windows
+source .venv/bin/activate      # Linux/macOS
+.venv\Scripts\activate         # Windows
 ```
 
-Обновление pip до последней версии:
-
-```bash
-python.exe -m pip install --upgrade pip
-```
-
-Установка зависимостей:
+#### Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Запуск бота
+#### Start bot
 
 ```bash
 python main.py
 ```
+
+---
+
+## 🐳 Run with Docker
+
+```bash
+docker-compose up --build -d
+```
+
+Make sure `.env` file exists on the server.
+
+---
+
+## ⚙️ Configuration
+
+Environment variables:
+
+| Variable  | Description            |
+| --------- | ---------------------- |
+| BOT_TOKEN | Telegram bot API token |
+
+---
+
+## 🌍 Supported Languages
+
+- English 🇬🇧
+- Russian 🇷🇺
+- Spanish 🇪🇸
+- Portuguese 🇧🇷
+- Indonesian 🇮🇩
+- Arabic 🇸🇦
+
+Language is automatically detected from Telegram settings.
+
+---
+
+## 📁 Project Structure
+
+```bash
+bot/
+  core/
+  handlers/
+  locales/
+  services/
+  utils/
+.gitignore
+deploy.sh
+docker-compose.yml
+Dockerfile
+main.py
+README.md
+requirements.txt
+```
+
+---
+
+## 🧠 How It Works
+
+1. User sends photo(s)
+2. Bot downloads images
+3. Converts them into PDF
+4. Sends PDF back to user
+5. Cleans temporary files
+
+---
+
+## 📌 Notes
+
+- Only images are supported
+- Large albums may take a few seconds to process
+- Temporary files are deleted automatically
