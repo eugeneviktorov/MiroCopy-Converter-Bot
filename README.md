@@ -1,4 +1,4 @@
-# 📄 MiroCopy Converter Bot
+# 📄 MiroCopy-Converter-Bot
 
 [![Python](https://img.shields.io/badge/Python-3.13-blue.svg)](https://www.python.org)
 [![Aiogram](https://img.shields.io/badge/Aiogram-3.x-green.svg)](https://docs.aiogram.dev)
