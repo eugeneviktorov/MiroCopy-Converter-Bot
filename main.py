@@ -7,6 +7,7 @@ from aiogram.client.default import DefaultBotProperties
 from bot.core.config import API_TOKEN
 from bot.handlers.convert import router as client_router
 from bot.core.logging import logger
+from bot.utils.enums import Locales
 from bot.telegram.commands import (
     get_commands_en,
     get_commands_ru,
@@ -22,12 +23,12 @@ async def set_commands(bot: Bot) -> None:
     await bot.set_my_commands(get_commands_en())
 
     # localized
-    await bot.set_my_commands(get_commands_en(), language_code="en")
-    await bot.set_my_commands(get_commands_ru(), language_code="ru")
-    await bot.set_my_commands(get_commands_es(), language_code="es")
-    await bot.set_my_commands(get_commands_pt(), language_code="pt")
-    await bot.set_my_commands(get_commands_id(), language_code="id")
-    await bot.set_my_commands(get_commands_ar(), language_code="ar")
+    await bot.set_my_commands(get_commands_en(), language_code=Locales.EN)
+    await bot.set_my_commands(get_commands_ru(), language_code=Locales.RU)
+    await bot.set_my_commands(get_commands_es(), language_code=Locales.ES)
+    await bot.set_my_commands(get_commands_pt(), language_code=Locales.PT)
+    await bot.set_my_commands(get_commands_id(), language_code=Locales.ID)
+    await bot.set_my_commands(get_commands_ar(), language_code=Locales.AR)
 
 
 async def main() -> None:

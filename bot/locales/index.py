@@ -1,4 +1,5 @@
 from bot.locales import en, ru, es, pt, id, ar
+from bot.utils.enums import Locales
 
 
 def get_texts(language_code: str | None):
@@ -7,14 +8,14 @@ def get_texts(language_code: str | None):
 
     code = language_code.lower()
 
-    if code.startswith("ru"):
+    if code.startswith(Locales.RU):
         return ru
-    if code.startswith("es"):
+    if code.startswith(Locales.ES):
         return es
-    if code.startswith("pt"):
+    if code.startswith(Locales.PT):
         return pt
-    if code.startswith("id"):
+    if code.startswith(Locales.ID):
         return id
-    if code.startswith("ar"):
+    if code.startswith(Locales.AR):
         return ar
     return en
