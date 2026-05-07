@@ -103,12 +103,12 @@ Environment variables:
 
 ## 🌍 Supported Languages
 
-- English 🇬🇧
-- Russian 🇷🇺
-- Spanish 🇪🇸
-- Portuguese 🇧🇷
-- Indonesian 🇮🇩
-- Arabic 🇸🇦
+- English
+- Russian
+- Spanish
+- Portuguese
+- Indonesian
+- Arabic
 
 Language is automatically detected from Telegram settings.
 
