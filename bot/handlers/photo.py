@@ -12,6 +12,7 @@ from bot.locales.index import get_texts
 from bot.services.pdf_service import images_to_pdf
 from bot.services.file_service import download_images, build_pdf_name
 from bot.ui.errors import send_unsupported_content
+from bot.ui.navigation import return_to_main_menu
 from bot.utils.files import safe_remove
 from bot.utils.states import ConvertStates
 
@@ -29,12 +30,7 @@ media_group_lock = asyncio.Lock()
 # ---------------------------
 @router.message(StateFilter(ConvertStates.convert_for_photos), F.text.contains("⬅️"))
 async def back_to_menu(message: types.Message, state: FSMContext):
-    await state.set_state(ConvertStates.main_menu)
-    lang = message.from_user.language_code if message.from_user else None
-    await message.answer(
-        get_texts(lang).START,
-        reply_markup=get_menu_keyboard(lang)
-    )
+    await return_to_main_menu(message, state)
 
 
 # ---------------------------
