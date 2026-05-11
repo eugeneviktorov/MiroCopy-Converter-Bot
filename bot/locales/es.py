@@ -4,10 +4,12 @@ START = "Seleccione el modo de conversión en el menú inferior"
 
 # Text for buttons
 BTN_IMAGE_TO_PDF = "📸 Imagen → PDF"
+BTN_TXT_TO_PDF = "🗒 TXT → PDF"
 BTN_BACK = "⬅️ Volver"
 
 # Text for the mode
 SEND_IMAGE = "Envía una o más imágenes (como un álbum) para que se compilen en un archivo PDF"
+SEND_TXT = "Envíe un archivo TXT para su ensamblaje en un archivo PDF"
 
 # Error messages
 PROCESSING_ERROR = "Se produjo un error durante el procesamiento"
