@@ -10,6 +10,7 @@ from bot.utils.build_pdf_name import build_pdf_name
 from bot.services.txt_service import txt_to_pdf
 from bot.ui.errors import send_unsupported_content
 from bot.ui.navigation import return_to_main_menu
+from bot.utils.enums import FileDocumentsExtensions
 from bot.utils.files import safe_remove
 from bot.utils.states import ConvertStates
 
@@ -32,7 +33,7 @@ async def back_to_menu(message: types.Message, state: FSMContext):
 async def txt_to_pdf_handler(message: types.Message):
     file_name = message.document.file_name.lower()
 
-    if not file_name.endswith('.txt'):
+    if not file_name.endswith(f'.{FileDocumentsExtensions.TXT.value}'):
         await send_unsupported_content(message)
         return
 
@@ -40,7 +41,7 @@ async def txt_to_pdf_handler(message: types.Message):
     operation_id = uuid.uuid4().hex[:10]
 
     # creating a path at the root
-    input_path = f"input_{user_id}_{operation_id}.txt"
+    input_path = f"input_{user_id}_{operation_id}.{FileDocumentsExtensions.TXT}"
     pdf_path = build_pdf_name(user_id, operation_id)
 
     try:

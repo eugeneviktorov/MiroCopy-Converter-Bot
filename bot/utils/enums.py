@@ -12,3 +12,8 @@ class Locales(str, Enum):
     PT = "pt"
     ID = "id"
     AR = "ar"
+
+
+class FileDocumentsExtensions(str, Enum):
+    PDF = "pdf"
+    TXT = "txt"
