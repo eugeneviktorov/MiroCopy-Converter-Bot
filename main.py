@@ -8,6 +8,7 @@ from bot.core.config import API_TOKEN
 from bot.handlers import get_handlers_router
 from bot.core.logging import logger
 from bot.telegram.commands import set_commands
+from bot.telegram.description import set_description
 
 
 async def main() -> None:
@@ -22,6 +23,7 @@ async def main() -> None:
     dp.include_router(get_handlers_router())
 
     await set_commands(bot)
+    await set_description(bot)
 
     try:
         await dp.start_polling(bot)

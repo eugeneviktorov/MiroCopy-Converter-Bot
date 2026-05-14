@@ -1,3 +1,7 @@
+# Main description bot
+BOT_ABOUT = "Um bot simples para o Telegram que converte fotos e outros ficheiros em PDF"
+BOT_DESCRIPTION = "Um bot simples para o Telegram que converte fotos e outros ficheiros em PDF"
+
 # Start Titles
 START_CMD = "🔄 Reinicie o bot"
 START = "Selecione o modo de conversão no menu abaixo"
